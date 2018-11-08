@@ -43,7 +43,7 @@ func (soap SOAP) SendRequest(xaddr string) (mxj.Map, error) {
 
 	// Create HTTP request
 	buffer := bytes.NewBuffer([]byte(request))
-	req, err := http.NewRequest("POST", urlXAddr.String(), buffer)
+	req, err := http.NewRequest("POST", urlXAddr.String() + "/onvif/device_service", buffer)
 	req.Header.Set("Content-Type", "application/soap+xml")
 	req.Header.Set("Charset", "utf-8")
 
